@@ -17,7 +17,16 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
       {isLoggedIn && <Navigation userObj={userObj} />}
       <Switch>
         {isLoggedIn ? (
-          <>
+          <div
+            style={{
+              maxWidth: 890,
+              width: "100%",
+              margin: "0 auto",
+              marginTop: 80,
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
             <Route exact path="/">
               <Home userObj={userObj} />
             </Route>
@@ -25,8 +34,9 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
               <Profile userObj={userObj} refreshUser={refreshUser} />
             </Route>
             <Redirect from="*" to="/" />
-          </> //22줄: "/"이 route에 있으면 상관없지만, 이 외의 route로 가게 되면 "/"으로 돌아감
+          </div>
         ) : (
+          //"/"이 route에 있으면 상관없지만, 이 외의 route로 가게 되면 "/"으로 돌아감
           <>
             <Route exact path="/">
               <Auth />

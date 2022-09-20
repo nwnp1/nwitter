@@ -1,6 +1,5 @@
 import { dbService } from "fbase";
 import React, { useEffect, useState } from "react";
-import { v4 } from "uuid";
 //getDownloadURL 임포트
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import Nweet from "components/Nweet";
@@ -24,9 +23,9 @@ const Home = ({ userObj }) => {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <NweetFactory userObj={userObj} />
-      <div>
+      <div style={{ marginTop: 30 }}>
         {nweets.map((nweet) => (
           <Nweet
             key={nweet.id}
